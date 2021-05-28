@@ -17,7 +17,7 @@ class Control(DataManager):
 		#else:
 			#self.error_option()
 		#return "error"
-		if(option in ("a","b","d","e","o")):
+		if option in ("a","b","d","e","o"):
 			return option
 		else:
 			self.error_option()
@@ -33,7 +33,7 @@ class Control(DataManager):
 			#self.error_option()
 		#return option
 
-		if(not(option in ("a", "b", "o"))):
+		if not option in ("a", "b", "o"):
 			self.error_option()
 		return option
 
@@ -45,7 +45,7 @@ class Control(DataManager):
 		#else:
 			#self.error_option()
 		#return option
-		if(not(option in ("y","n"))):
+		if not option in ("y","n"):
 			self.error_option()
 
 		return option
@@ -53,28 +53,28 @@ class Control(DataManager):
 forms_manager = Forms()
 
 def getForm(id_option):
-	if(id_option == "cdo_a"):
+	if id_option == "cdo_a":
 		forms_manager.update_city_form()
-	elif(id_option == "cdo_b"):
+	elif id_option == "cdo_b":
 		forms_manager.update_date_range_form()
-	elif(id_option == "cdo_c"):
+	elif id_option == "cdo_c":
 		forms_manager.update_directions_shop_form()
-	elif(id_option == "cdo_d"):
+	elif id_option == "cdo_d":
 		forms_manager.update_workers_names_form()
-	elif(id_option == "cdo_c"):
+	elif id_option == "cdo_c":
 		forms_manager.update_temperatures_form()
-	elif(id_option == "dc_a"):
+	elif id_option == "dc_a":
 		return "cdo"
-	elif(id_option == "dc_b"):
+	elif id_option == "dc_b":
 		return "scf"
-	elif(id_option == "scf_y"):
+	elif id_option == "scf_y":
 		create_file(forms_manager.generate_json_data())
 		print("Data is Created")
 		sleep(5)
 		return True
-	elif(id_option == "scf_n"):
+	elif id_option == "scf_n":
 		return False
-	elif(id_option == "load_json"):
+	elif id_option == "load_json":
 		forms_manager.charge_json_data(get_json_of_stores_data())
 	else:
 		print("Internal Error, Close Program Please")

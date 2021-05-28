@@ -8,21 +8,27 @@ class DataManager:
 
 	def __init__(self):
 		print("Data Manager LocalDB is Initialized")
+
 	def update_city(self, new_city_name):
 		self.config_data["city"] = new_city_name
+
 	def update_date_range(self, first_year, last_year):
 		self.config_data["date_range"] = [first_year, last_year]
+
 	def update_directions_shop(self, list_direction_shop):
 		self.config_data["direction_shop"] = [list_direction_shop]
+
 	def update_workers_names(self, list_workers_names):
 		self.config_data["workers_names"] = [list_workers_names]
+
 	def update_temperature(self, min_temperature, max_temperature):
 		self.config_data["temperature"] = [min_temperature, max_temperature]
+
 	def update_config(self, new_config_data):
 		pass
+
 	def charge_json_data(self, data_json):
 		self.config_data = data_json
-
 
 class Forms(DataManager):
 	def update_city_form(self):
@@ -47,9 +53,9 @@ class Forms(DataManager):
 				#isUpdating = False
 		#self.update_directions_shop(direction_list)
 		direction_list = []
-		while(True):
+		while True :
 			direction = input("Insert a new Direction ('o' to save): ")
-			if(direction != o):
+			if direction != o:
 				direction_list.append(direction)
 			else:
 				break
@@ -66,9 +72,9 @@ class Forms(DataManager):
 				#isUpdating = False
 		#self.update_workers_names(list_workers_names)
 		workers_names = []
-		while (True):
+		while True:
 			worker_name = input("Insert a new Name Worker ('o' to save): ")
-			if(direction != o):
+			if direction != o:
 				workers_names.append(worker_name)
 			else:
 				break
@@ -83,17 +89,17 @@ class Forms(DataManager):
 		t_min = 10
 		t_max = 22
 		temperature = 0
-		if(hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]):
+		if hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]:
 			t_min = 18
 			#temperature = randint(t_min, t_max)
-		elif(not hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]):
+		elif not hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]:
 			#temperature = randint(t_min, t_max)
 			pass
-		elif(not  hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]):
+		elif not  hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]:
 			t_min = 18
 			t_max = 25
 			#temperature = randint(t_min, t_max)
-		elif(hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]):
+		elif hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]:
 			t_min = 20
 			t_max = 28
 			#temperature = randint(t_min, t_max)
@@ -104,26 +110,27 @@ class Forms(DataManager):
 		ices = 0
 		ice_min = 0
 		ice_max = 1
-		if(randint(-3,5) >= 1):
-			if(temperature >=10 and temperature <=15):
+		if randint(-3,5) >= 1:
+			#if temperature >=10 and temperature <=15:
+			if temperature in range(10, 16):
 				pass
 				#ices = randint(ice_min, ice_max)
-			if(temperature >= 16 and temperature <= 20):
+			elif temperature in range(16, 21):
 				ice_max = 4
 				#ices = randint(ice_min, ice_max)
-			elif(temperature >= 20 and temperature <= 24):
+			elif temperature in range(20, 25):
 				ice_min = 2
 				ice_max = 9
 				#ices = randint(ice_min, ice_max)
-			elif(temperature >= 24):
+			elif temperature >= 24:
 				ice_min = 2
 				ice_max = 12
 				#ices = randint(ice_min, ice_max)
 			ices = randint(ice_min, ice_max)
 		minutes_sales = []
-		while(ices > len(minutes_sales)):
+		while ices > len(minutes_sales):
 			tem_minute = randint(0, 59)
-			if(not tem_minute in minutes_sales):
+			if not tem_minute in minutes_sales:
 				minutes_sales.append(tem_minute)
 		minutes_sales.sort()
 		return minutes_sales
@@ -156,12 +163,12 @@ class Forms(DataManager):
 				for day in range(1, 35):
 					day_ = day
 					temp_day_data =[]
-					if(self.Day_its_okay(year_init_, mounth_, day_)):
+					if self.Day_its_okay(year_init_, mounth_, day_):
 						for name_worker in self.config_data["stores"]:
 							name_worker_ = name_worker
 							city_ = self.config_data["stores"][name_worker][0]
 							name_store_ = self.config_data["stores"][name_worker][1]
-							if(self.Day_its_okay(year_init_, mounth_, day_)):
+							if self.Day_its_okay(year_init_, mounth_, day_):
 								for hour in range(self.config_data["regular_time_work"][0], self.config_data["regular_time_work"][1]):
 									hour_ = hour
 									temperature_ = self.get_temperature(hour_,mounth_)
