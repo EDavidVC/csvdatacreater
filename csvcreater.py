@@ -1,14 +1,9 @@
-#from manager import control_panel
 from manager.control_panel import getForm, Control
 from os import system
 
-#running = False
-
 self_control = Control()
 
-#def start():
 def start(running=True):
-	#global running
 	state_panel = "dc"
 	while running:
 		system("cls")
@@ -32,6 +27,5 @@ def start(running=True):
 
 
 if __name__ == "__main__":
-	#running = True
 	getForm("load_json")
 	start()
