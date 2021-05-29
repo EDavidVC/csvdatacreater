@@ -24,8 +24,6 @@ def start(running=True):
 			print("Internal Error Sorry, restart Program Please")
 			running = False
 
-
-
 if __name__ == "__main__":
 	getForm("load_json")
 	start()

@@ -1,5 +1,4 @@
 from manager.data_manager import DataManager, Forms
-#from manager.data_manager import forms
 from manager.json_manager import get_json_of_stores_data
 from manager.data_creater import create_file
 from time import sleep
@@ -52,10 +51,13 @@ def getForm(id_option):
 	elif id_option == "dc_b":
 		return "scf"
 	elif id_option == "scf_y":
-		create_file(forms_manager.generate_json_data())
-		print("Data is Created")
-		sleep(5)
-		return True
+		try:
+			create_file(forms_manager.generate_json_data())
+			print("Data is Created")
+			sleep(3)
+			return True
+		except:
+			return False
 	elif id_option == "scf_n":
 		return False
 	elif id_option == "load_json":
