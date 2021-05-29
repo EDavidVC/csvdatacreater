@@ -1,4 +1,3 @@
-#from manager import control_panel
 from manager.control_panel import getForm, Control
 from os import system
 
@@ -11,7 +10,7 @@ def start(running=True):
 	#global running
 	state_panel = "dc"
 	while running:
-		system("cls")
+		system("clear")  #clear en lugar de cls, ya que clear es compatible con Windows y con Linux
 		if state_panel == "dc":
 			option = self_control.default_control()
 			if option != "o":
