@@ -1,5 +1,4 @@
 from manager.data_manager import DataManager, Forms
-#from manager.data_manager import forms
 from manager.json_manager import get_json_of_stores_data
 from manager.data_creater import create_file
 from time import sleep
@@ -12,11 +11,6 @@ class Control(DataManager):
 	def config_data_options(self):
 		print("Insert Your Uption: \n a : Update City \n b : Update Date Range \n c : Update Directions Shop Stores \n d : Update Workser Names \n e : Update Temperature (Min/Max) \n o : back")
 		option = input("Insert Here: ")
-		#if(option in ["a","b","d","e","o"]):
-			#return option
-		#else:
-			#self.error_option()
-		#return "error"
 		if option in ("a","b","d","e","o"):
 			return option
 		else:
@@ -27,12 +21,6 @@ class Control(DataManager):
 		print("Welcome to my Tool\n** Control Panel **")
 		print("Insert Your Option \n a : Config Data Parameters \n b : Start Create the File .CSV \n o : Exit Program")
 		option = input("Insert Here: ")
-		#if(option in ["a","b","o"]):
-			#return option
-		#else:
-			#self.error_option()
-		#return option
-
 		if not option in ("a", "b", "o"):
 			self.error_option()
 		return option
@@ -40,11 +28,6 @@ class Control(DataManager):
 	def start_create_file(self):
 		print("Your Data is Saving Are you Ok?")
 		option = input("Insert Option (y/n): ")
-		#if(option in ["y","n"]):
-			#return option
-		#else:
-			#self.error_option()
-		#return option
 		if not option in ("y","n"):
 			self.error_option()
 
@@ -68,10 +51,13 @@ def getForm(id_option):
 	elif id_option == "dc_b":
 		return "scf"
 	elif id_option == "scf_y":
-		create_file(forms_manager.generate_json_data())
-		print("Data is Created")
-		sleep(5)
-		return True
+		try:
+			create_file(forms_manager.generate_json_data())
+			print("Data is Created")
+			sleep(3)
+			return True
+		except:
+			return False
 	elif id_option == "scf_n":
 		return False
 	elif id_option == "load_json":

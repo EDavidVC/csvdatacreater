@@ -1,8 +1,6 @@
 from random import randint
 from datetime import datetime
 import random
-
-#class data_manager():
 class DataManager:
 	config_data = {}
 
@@ -43,41 +41,25 @@ class Forms(DataManager):
 		print("Update Successfully...")
 
 	def update_directions_shop_form(self):
-		#isUpdating = True
-		#direction_list = []
-		#while (isUpdating):
-			#direction = input("Insert a new Direction ('o' to save): ")
-			#if(direction != o):
-				#direction_list.append(direction)
-			#else:
-				#isUpdating = False
-		#self.update_directions_shop(direction_list)
+		isUpdating = True
 		direction_list = []
-		while True :
+		while isUpdating:
 			direction = input("Insert a new Direction ('o' to save): ")
 			if direction != o:
 				direction_list.append(direction)
 			else:
-				break
+				isUpdating = False
 		self.update_directions_shop(direction_list)
 
 	def update_workers_names_form(self):
-		#isUpdating = True
-		#workers_names = []
-		#while (isUpdating):
-			#worker_name = input("Insert a new Name Worker ('o' to save): ")
-			#if(direction != o):
-				#workers_names.append(worker_name)
-			#else:
-				#isUpdating = False
-		#self.update_workers_names(list_workers_names)
+		isUpdating = True
 		workers_names = []
-		while True:
+		while isUpdating:
 			worker_name = input("Insert a new Name Worker ('o' to save): ")
 			if direction != o:
 				workers_names.append(worker_name)
 			else:
-				break
+				isUpdating = False
 		self.update_workers_names(list_workers_names)
 
 	def update_temperatures_form(self):
@@ -91,18 +73,12 @@ class Forms(DataManager):
 		temperature = 0
 		if hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]:
 			t_min = 18
-			#temperature = randint(t_min, t_max)
-		elif not hour in self.config_data["max_sun_force"] and not mounth in self.config_data["summer_mounths"]:
-			#temperature = randint(t_min, t_max)
-			pass
 		elif not  hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]:
 			t_min = 18
 			t_max = 25
-			#temperature = randint(t_min, t_max)
 		elif hour in self.config_data["max_sun_force"] and mounth in self.config_data["summer_mounths"]:
 			t_min = 20
 			t_max = 28
-			#temperature = randint(t_min, t_max)
 		temperature = randint(t_min, t_max)
 		return temperature
 
@@ -111,21 +87,14 @@ class Forms(DataManager):
 		ice_min = 0
 		ice_max = 1
 		if randint(-3,5) >= 1:
-			#if temperature >=10 and temperature <=15:
-			if temperature in range(10, 16):
-				pass
-				#ices = randint(ice_min, ice_max)
-			elif temperature in range(16, 21):
+			if temperature in range(16, 21):
 				ice_max = 4
-				#ices = randint(ice_min, ice_max)
 			elif temperature in range(20, 25):
 				ice_min = 2
 				ice_max = 9
-				#ices = randint(ice_min, ice_max)
 			elif temperature >= 24:
 				ice_min = 2
 				ice_max = 12
-				#ices = randint(ice_min, ice_max)
 			ices = randint(ice_min, ice_max)
 		minutes_sales = []
 		while ices > len(minutes_sales):
@@ -144,8 +113,7 @@ class Forms(DataManager):
 			return False
 
 	def generate_json_data(self):
-		#columnames = ["id", "Pais", "Ciudad", "Temperatura", "Encargado", "Tienda","Producto","Precio", "Fecha", "Hora"]
-		columnames = ("id", "Pais", "Ciudad", "Temperatura", "Encargado", "Tienda","Producto","Precio", "Fecha", "Hora")
+		columnames = ("id", "Pais", "Ciudad", "Temperatura", "Encargado", "Tienda","Producto","Precio", "Fecha")
 		temp_data = [columnames]
 		mounth_cant = 12
 
@@ -176,8 +144,8 @@ class Forms(DataManager):
 									for minute in self.get_ice_hour_sale(temperature_):
 										product = random.choice(list(self.config_data["products"].items()))
 										date_temp = datetime.strptime("%s/%s/%s %s:%s:%s"%(year_init_, mounth_, day_, hour_, minute, randint(0,59)), "%Y/%m/%d %H:%M:%S")
-										temp_day_data.append([0, country_, city_, str(temperature_), name_worker_, name_store_,product[0], product[1], date_temp.date(),  date_temp.time()])
-						temp_day_data.sort(key=lambda date: date[9])
+										temp_day_data.append([0, country_, city_, str(temperature_), name_worker_, name_store_,product[0], product[1], date_temp])
+						temp_day_data.sort(key=lambda date: date[8])
 						for hour_data in temp_day_data:
 							hour_data[0] = id_
 							temp_data.append(hour_data)

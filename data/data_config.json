@@ -32,10 +32,9 @@
 		"Helado InDream Custom":600.20,
 		"Helado BirthDay":200.30
 	},
-	"date_range" : [2018, 2021],
+	"date_range" : [2021, 2021],
 	"summer_mounths" : [11,12,1,2],
 	"max_sun_force" : [11, 12, 1, 2],
 	"regular_time_work" :[8, 20],
 	"temperature":[14, 27]
-
 }
