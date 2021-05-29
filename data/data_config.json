@@ -36,6 +36,6 @@
 	"summer_mounths" : [11,12,1,2],
 	"max_sun_force" : [11, 12, 1, 2],
 	"regular_time_work" :[8, 20],
-	"temperature":[14, 27]
-
+	"temperature":[14, 27],
+	"data_test":"nothing Foo"
 }
