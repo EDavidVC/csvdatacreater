@@ -1,5 +1,5 @@
 import json
-
+#moved to JSONFile class in model.py
 def get_json_of_stores_data():
 	with open("data/data_config.json", "r", encoding="utf-8") as json_file:
 		data_stores = json.load(json_file)
