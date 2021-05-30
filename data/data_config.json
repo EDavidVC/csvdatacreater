@@ -1,22 +1,21 @@
 {
-
 	"country":"Peru",
 	"stores":{
-		"Apoo Najasa Namapetilan":["Puno","MiniMarket"],
-		"Marianita Quispe":["Puno","McRonald"],
-		"Bob Scponja":["Lima","Crustacio Cascarudo"],
-		"Calamardo":["Lima","Crustacio Cascarudo"],
-		"Don Cangrejo":["Lima","Crustacio Cascarudo"],
-		"Banilla Ice":["Arequipa","Ice Ice Baby"],
-		"Juan Peres":["Juliaca","Ice Corporated"],
-		"Roman Gonzales":["Lima","McRoman"],
+		"Apoo Najasa Namapetilan":["Puno", "MiniMarket"],
+		"Marianita Quispe":["Puno", "McRonald"],
+		"Bob Scponja":["Lima", "Crustacio Cascarudo"],
+		"Calamardo":["Lima", "Crustacio Cascarudo"],
+		"Don Cangrejo":["Lima", "Crustacio Cascarudo"],
+		"Banilla Ice":["Arequipa", "Ice Ice Baby"],
+		"Juan Peres":["Juliaca", "Ice Corporated"],
+		"Roman Gonzales":["Lima", "McRoman"],
 		"Carlos Manuel Quispe Yaja":["Tacna", "TCN Ice Cream"],
-		"Eduardo Atencio":["Moquegua","MQG Marina"],
-		"Martion Quispe":["Moquegua","General Store"],
-		"Marina Gonzales Quispe":["Tacna","General Store"],
-		"Pepito Alcachofa":["Puno","General Store"],
-		"Martin Copadelsur":["Arequipa","Bodegita San Martin"],
-		"Martha Gonzales":["Cusco","MachuPichu Local Store"]
+		"Eduardo Atencio":["Moquegua", "MQG Marina"],
+		"Martion Quispe":["Moquegua", "General Store"],
+		"Marina Gonzales Quispe":["Tacna", "General Store"],
+		"Pepito Alcachofa":["Puno", "General Store"],
+		"Martin Copadelsur":["Arequipa", "Bodegita San Martin"],
+		"Martha Gonzales":["Cusco", "MachuPichu Local Store"]
 	},
 	"products":{
 		"Helado de canela":3.00,
@@ -32,9 +31,9 @@
 		"Helado InDream Custom":600.20,
 		"Helado BirthDay":200.30
 	},
-	"date_range" : [2021, 2021],
-	"summer_mounths" : [11,12,1,2],
-	"max_sun_force" : [11, 12, 1, 2],
-	"regular_time_work" :[8, 20],
+	"date_range":[2020, 2021],
+	"summer_mounths":[11, 12, 1, 2],
+	"max_sun_force":[11, 12, 1, 2],
+	"regular_time_work":[8, 20],
 	"temperature":[14, 27]
 }

@@ -6,7 +6,7 @@ self_control = Control()
 def start(running=True):
 	state_panel = "dc"
 	while running:
-		system("clear")  #clear en lugar de cls, ya que clear es compatible con Windows y con Linux
+		#system("clear")  #clear en lugar de cls, ya que clear es compatible con Windows y con Linux
 		if state_panel == "dc":
 			option = self_control.default_control()
 			if option != "o":
